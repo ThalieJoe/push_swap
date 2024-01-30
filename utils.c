@@ -6,9 +6,10 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:03:06 by stouitou          #+#    #+#             */
-/*   Updated: 2024/01/25 16:15:40 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/01/29 12:16:43 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	count_elem(char **elem)
@@ -21,10 +22,10 @@ int	count_elem(char **elem)
 	return (count);
 }
 
-int	get_min(int *arr, int size)
+long	get_min(long *arr, int size)
 {
-	int	min;
-	int	i;
+	long	min;
+	int		i;
 
 	i = 0;
 	min = arr[i];
@@ -37,10 +38,10 @@ int	get_min(int *arr, int size)
 	return (min);
 }
 
-int	get_max(int *arr, int size)
+long	get_max(long *arr, int size)
 {
-	int	max;
-	int	i;
+	long	max;
+	int		i;
 
 	i = 0;
 	max = arr[i];
@@ -66,7 +67,17 @@ void	free_tab(char **tab)
 	free(tab);
 }
 
-void	delete_content(void *content)
+void	clear_pile(t_list **pile)
 {
-	free(content);
+	t_list	*next;
+
+	if (pile == NULL || *pile == NULL)
+		return ;
+	while (*pile)
+	{
+		next = (*pile)->next;
+		free(*pile);
+		*pile = next;
+	}
+	*pile = NULL;
 }

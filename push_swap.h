@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 13:02:47 by stouitou          #+#    #+#             */
-/*   Updated: 2024/01/25 15:50:23 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/01/29 16:49:16 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,37 +20,30 @@
 
 int		main(int argc, char **argv);
 char	**get_elem(char **argv);
-int	*get_numbers(char **elem, int size);
-t_list	*fill_pile(int *elem, int size);
-void	print_lists(t_list **pile_a, t_list **pile_b);
-void	ft_swap(t_list **pile, char l);
-void	ft_swap_both(t_list **pile_a, t_list **pile_b);
-void	ft_push(t_list **pile_b, t_list **pile_a, char l);
-void	ft_rotate(t_list **pile, char l);
-void	ft_rotate_both(t_list **pile_a, t_list **pile_b);
-void	ft_reverse_rotate(t_list **pile, char l);
-void	ft_reverse_rotate_both(t_list **pile_a, t_list **pile_b);
-void	analyze_elem(int *numbers, int size, t_list **pile_a, t_list **pile_b);
-void	algo_radix(t_list **pile_a, t_list **pile_b);
-void	counting_sort(int *stack, int size, int pos);
-int		*initialize_stack(t_list **pile, int size);
-void	sort_pile(t_list **pile_a, t_list **pile_b, int *stack, int size);
-int		algo_pets(t_list **pile_a, t_list **pile_b);
+int		is_error(char **elem);
+long	*get_numbers(char **elem, int size);
+t_list	*fill_pile(long *numbers, int size);
+void	analyze_pile(long *numbers, int size, t_list **pa, t_list **pb);
+int		numbers_in_order(long *numbers, int size);
 void	sort_three(t_list **pile, char c);
-void	sort_four(t_list **pile_a, t_list **pile_b, int *numbers);
-void	requires_min_action(t_list **pile, int *numbers, int size, int *sorted);
-int		need_rotate(t_list **pile);
-int		need_reverse_rotate(t_list **pile);
-int		need_swap_a(t_list **pile);
-int		need_swap_b(t_list **pile);
-int		numbers_in_order(int *numbers);
+void	req_one_action(t_list **pile, long *numbers, int size, int *sorted);
+void	sort_four_or_five(t_list **pa, t_list **pb, long *numbers);
+void	algo_radix(t_list **pa, t_list **pb);
+void	counting_sort(long *stack, int size, long pos);
+long	*initialize_stack(t_list *pile, int size);
+void	sort_pile(t_list **pa, t_list **pb, long *stack, int size);
+void	ft_swap(t_list **pile, char l);
+void	ft_swap_both(t_list **pa, t_list **pb);
+void	ft_push(t_list **pb, t_list **pa, char l);
+void	ft_rotate(t_list **pile, char l);
+void	ft_rotate_both(t_list **pa, t_list **pb);
+void	ft_reverse_rotate(t_list **pile, char l);
+void	ft_reverse_rotate_both(t_list **pa, t_list **pb);
 /* in utils.c */
 int		count_elem(char **elem);
-int		get_min(int *arr, int size);
-int		get_max(int *arr, int size);
+long	get_min(long *arr, int size);
+long	get_max(long *arr, int size);
 void	free_tab(char **tab);
-void	delete_content(void *content);
-
-char	**random_generator(char **argv);
+void	clear_pile(t_list **pile);
 
 #endif

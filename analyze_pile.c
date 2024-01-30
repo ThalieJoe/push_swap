@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   analyze_elem.c                                     :+:      :+:    :+:   */
+/*   analyze_pile.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 14:38:14 by stouitou          #+#    #+#             */
-/*   Updated: 2024/01/29 16:47:11 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/01/29 16:47:10 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 	 * 5- si entre quatre ou cinq = sort last four || five
 	 */
 
-void	analyze_pile(int *numbers, int size, t_list **pa, t_list **pb)
+void	analyze_pile(long *numbers, int size, t_list **pa, t_list **pb)
 {
 	int	sorted;
 
@@ -34,9 +34,11 @@ void	analyze_pile(int *numbers, int size, t_list **pa, t_list **pb)
 	if (size == 3)
 		sort_three(pa, 'a');
 	if (size > 3)
-		requires_min_action(pa, numbers, size, &sorted);
-	if (size > 3 && size <= 5 && !sorted)
-		sort_four(pa, pb, numbers);
-	if (size > 5 && !sorted)
-		algo_radix(pa, pb);
+	{
+		req_one_action(pa, numbers, size, &sorted);
+		if (size <= 5 && !sorted)
+			sort_four_or_five(pa, pb, numbers);
+		if (size > 5 && !sorted)
+			algo_radix(pa, pb);
+	}
 }

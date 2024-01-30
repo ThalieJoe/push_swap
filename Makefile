@@ -2,23 +2,23 @@ NAME = push_swap
 
 SOURCES = main.c \
 	  get_elem.c \
+	  is_error.c \
 	  get_numbers.c \
-	  in_order.c \
 	  fill_pile.c \
-	  print_lists.c \
+	  analyze_pile.c \
+	  numbers_in_order.c \
+	  sort_three.c \
+	  requires_one_action.c \
+	  sort_four_or_five.c \
+	  algo_radix.c \
+	  counting_sort.c \
+	  initialize_stack.c \
+	  sort_pile.c \
 	  ft_swap.c \
 	  ft_push.c \
 	  ft_rotate.c \
 	  ft_reverse_rotate.c \
-	  analyze_elem.c \
-	  radix_sort.c \
-	  counting_sort.c \
-	  initialize_stack.c \
-	  sort_pile.c \
-	  sort_three.c \
-	  sort_four.c \
 	  utils.c \
-	  random_generator.c \
 
 OBJETS = ${SOURCES:.c=.o}
 
@@ -45,7 +45,7 @@ clean:
 
 fclean: clean
 	rm -f ${NAME}
-	make fclean -C ${LIBFTPATH}
+	rm -f ${LIBFTPATH}/${LIBFTNAME}
 
 re: fclean all
 

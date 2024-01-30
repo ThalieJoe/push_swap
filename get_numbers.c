@@ -6,17 +6,18 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:32:01 by stouitou          #+#    #+#             */
-/*   Updated: 2024/01/25 16:13:15 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/01/29 12:16:09 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
-int	*get_numbers(char **elem, int size)
+long	*get_numbers(char **elem, int size)
 {
-	int	*numbers;
-	int	i;
+	long	*numbers;
+	int		i;
 
-	numbers = (int *)malloc(sizeof(int) * size);
+	numbers = (long *)malloc(sizeof(long int) * size);
 	if (!numbers)
 		return (NULL);
 	i = 0;
@@ -27,4 +28,3 @@ int	*get_numbers(char **elem, int size)
 	}
 	return (numbers);
 }
-

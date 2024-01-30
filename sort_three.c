@@ -6,9 +6,10 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:31:26 by stouitou          #+#    #+#             */
-/*   Updated: 2024/01/25 14:09:33 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/01/29 16:47:15 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	sort_three(t_list **pile, char c)
@@ -24,20 +25,12 @@ void	sort_three(t_list **pile, char c)
 	first = *(int *)(*pile)->content;
 	second = *(int *)((*pile)->next->content);
 	third = *(int *)(last->content);
-	if (first < second && first > third)
+	if (first > second && first > third)
+		ft_rotate(pile, c);
+	else if (second > first && second > third)
 		ft_reverse_rotate(pile, c);
-	if (second < third && first > third)
-		ft_rotate(pile, c);
-	if (first > second && first < third)
+	first = *(int *)(*pile)->content;
+	second = *(int *)((*pile)->next->content);
+	if (first > second)
 		ft_swap(pile, c);
-	if (first > second && second > third)
-	{	
-		ft_rotate(pile, c);
-		ft_swap(pile, c);
-	}
-	if (second > third && first < third)
-	{
-		ft_swap(pile, c);
-		ft_rotate(pile, c);
-	}
 }

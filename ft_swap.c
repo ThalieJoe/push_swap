@@ -6,9 +6,10 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 12:57:42 by stouitou          #+#    #+#             */
-/*   Updated: 2024/01/25 14:17:03 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/01/29 16:47:05 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_swap(t_list **pile, char l)
@@ -34,12 +35,12 @@ void	ft_swap(t_list **pile, char l)
 		ft_printf("%s\n", "sb");
 }
 
-void	ft_swap_both(t_list **pile_a, t_list **pile_b)
+void	ft_swap_both(t_list **pa, t_list **pb)
 {
-	if (pile_a == NULL || *pile_a == NULL
-		|| pile_b == NULL || *pile_b == NULL)
+	if (pa == NULL || *pa == NULL
+		|| pb == NULL || *pb == NULL)
 		return ;
-	ft_swap(pile_a, 'z');
-	ft_swap(pile_b, 'z');
+	ft_swap(pa, 'z');
+	ft_swap(pb, 'z');
 	ft_printf("%s\n", "ss");
 }

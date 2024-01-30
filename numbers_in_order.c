@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
+/*   numbers_in_order.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/08 11:17:04 by stouitou          #+#    #+#             */
-/*   Updated: 2024/01/26 14:57:18 by stouitou         ###   ########.fr       */
+/*   Created: 2024/01/26 11:01:17 by stouitou          #+#    #+#             */
+/*   Updated: 2024/01/29 16:47:12 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+int	numbers_in_order(long *numbers, int size)
 {
-	if (lst == NULL || del == NULL)
-		return ;
-	del(lst->content);
-	free(lst);
+	int	i;
+
+	i = 1;
+	while (i < size)
+	{
+		if (numbers[i - 1] > numbers[i])
+			return (0);
+		i++;
+	}
+	return (1);
 }

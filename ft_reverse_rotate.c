@@ -6,7 +6,7 @@
 /*   By: stouitou <stouitou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 12:59:13 by stouitou          #+#    #+#             */
-/*   Updated: 2024/01/25 14:16:44 by stouitou         ###   ########.fr       */
+/*   Updated: 2024/01/29 16:47:07 by stouitou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ void	ft_reverse_rotate(t_list **pile, char l)
 		ft_printf("%s\n", "rrb");
 }
 
-void	ft_reverse_rotate_both(t_list **pile_a, t_list **pile_b)
+void	ft_reverse_rotate_both(t_list **pa, t_list **pb)
 {
-	if (pile_a == NULL || *pile_a == NULL
-		|| pile_b == NULL || *pile_b == NULL)
+	if (pa == NULL || *pa == NULL
+		|| pb == NULL || *pb == NULL)
 		return ;
-	ft_reverse_rotate(pile_a, 'c');
-	ft_reverse_rotate(pile_b, 'c');
+	ft_reverse_rotate(pa, 'c');
+	ft_reverse_rotate(pb, 'c');
 	ft_printf("%s\n", "z");
 }
